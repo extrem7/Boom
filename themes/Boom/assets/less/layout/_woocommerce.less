@@ -1,0 +1,207 @@
+.products {
+  display: flex;
+  margin-bottom: 35px;
+}
+
+.category-carousel {
+  .owl-item {
+    display: flex;
+    justify-content: center;
+  }
+  .owl-nav {
+    position: absolute;
+    top: -68px;
+    right: 0;
+    display: flex;
+    background-color: white;
+    button {
+      margin: 0 9px;
+      position: unset;
+    }
+  }
+}
+
+.product-card {
+  width: 200px;
+  min-height: 315px;
+  margin-right: 15px;
+  padding: 10px 10px 15px;
+  border: 1px solid @light;
+  text-align: center;
+  font-size: 13px;
+  text-transform: uppercase;
+  cursor: pointer;
+  position: relative;
+  &:hover {
+    .photo {
+      .scale(1.05);
+    }
+  }
+  .photo {
+    max-height: 228px;
+    transition: transform .2s;
+    width: auto !important;
+    margin: 0 auto;
+  }
+  .title {
+    font-weight: 700;
+  }
+  .excerpt {
+    font-size: 12px;
+    line-height: 14px;
+  }
+  .price {
+    margin-top: 10px;
+    color: @red;
+    font-weight: 700;
+  }
+  .made-by-boom {
+    .size(58px, 24px);
+    position: absolute;
+    top: 8px;
+    left: 7px;
+    background: url("../img/made-boom.png");
+    background-size: 100% 100%;
+    display: block;
+    z-index: 1;
+  }
+}
+
+.tax-product_cat {
+  .products {
+    display: flex;
+    flex-wrap: wrap;
+  //  justify-content: space-between;
+    margin-bottom: 10px;
+    .product-card {
+      margin: 0 5px 20px;
+    }
+  }
+}
+
+.boom-sorting {
+  background-color: #ebebeb;
+  margin: 50px 0 20px;
+  padding: 8px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+
+  .woocommerce-ordering, .woocommerce-per-page {
+    display: flex;
+    input {
+      display: none;
+      &:checked + label,&.active + label {
+        background-color: @dark-red;
+      }
+    }
+    label {
+      background-color: #666666;
+      margin-left: 15px;
+      .size(25px);
+      .flex-center();
+      color: #ffffff;
+      transition: background-color .2s;
+      cursor: pointer;
+      svg, i {
+        margin-left: 4px;
+        font-size: 10px;
+      }
+    }
+  }
+  .woocommerce-ordering {
+    p {
+      margin-right: 15px;
+    }
+    label {
+      width: 149px;
+      margin-left: 4px;
+    }
+  }
+}
+
+.woocommerce-pagination {
+  margin-bottom: 30px;
+  ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    font-size: 12px;
+  }
+  li {
+    & + li {
+      margin-left: 1rem;
+    }
+  }
+  a, span {
+    .border-radius(2px);
+    background-color: #ebebeb;
+    .size(20px);
+    .flex-center();
+    &:hover,
+    &:focus, &.current {
+      color: white;
+      background-color: #b50000;
+    }
+    &.current {
+      pointer-events: none;
+    }
+  }
+  .prev, .next {
+    width: 80px;
+    color: #848383;
+    &:hover {
+      color: #f8f8f8;
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .boom-sorting {
+    flex-direction: column-reverse;
+    align-items: center;
+    .woocommerce-ordering {
+      margin-bottom: 15px;
+    }
+  }
+
+  .tax-product_cat{
+    .products{
+      justify-content: space-around;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .boom-sorting {
+    flex-direction: row;
+    .woocommerce-ordering {
+      flex-direction: column;
+      text-align: center;
+      label{
+        margin: 0 0 4px;
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .boom-sorting{
+    flex-direction: column-reverse;
+  }
+
+  .category-carousel {
+    .product-card {
+      margin-right: 0;
+    }
+    .owl-nav {
+      background-color: transparent;
+      top: auto;
+      bottom: -60px;
+      left: 0;
+      justify-content: center;
+    }
+  }
+}

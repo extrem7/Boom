@@ -1,0 +1,221 @@
+.sidebar {
+  padding-right: 5px;
+  .catalog-menu {
+    margin-bottom: 44px;
+    //display: none;
+    a {
+      height: 40px;
+      margin-bottom: 4px;
+      position: relative;
+      &:after {
+        display: none;
+        content: "\f054";
+        font-family: 'Font Awesome 5 Free';
+        font-size: 18px;
+        position: absolute;
+        top: 6px;
+        right: 17px;
+        color: #c00300;
+        pointer-events: none;
+        transition: transform .2s;
+      }
+    }
+    & > ul {
+      & > .current-cat, & > .current-cat-ancestor {
+        & > a {
+          background-color: #c00300;
+          color: white;
+          use {
+            fill: white;
+          }
+          &:after {
+            color: white;
+          }
+        }
+      }
+      & > li {
+        &.current-cat > a {
+          background-color: #c00300;
+          color: white;
+          use {
+            fill: white;
+          }
+          &:after {
+            color: white;
+          }
+        }
+        & > a {
+          .icon {
+            display: flex;
+            justify-content: center;
+          }
+        }
+      }
+    }
+    svg {
+      max-height: 30px;
+    }
+    .has-children {
+      & > a {
+        &:after {
+          display: block;
+        }
+      }
+    }
+    .current-cat, .current-cat-ancestor {
+      & > a {
+        &:after {
+          .rotate(90deg);
+        }
+      }
+      & > .children {
+        display: block;
+      }
+    }
+    .children {
+      display: none;
+      padding-left: 22px;
+      a {
+        background-color: @dark;
+        color: white;
+        font-weight: 500;
+        text-transform: none;
+        border: none;
+        &:before {
+          content: '';
+          .size(19px, 15px);
+          background: url("../img/menu-2.png");
+          position: absolute;
+          left: -22px;
+          top: 12px;
+        }
+      }
+      & > li > a {
+        &:after {
+          color: white;
+        }
+      }
+      .children {
+        .current-cat {
+          a {
+            background-color: #c00300;
+          }
+        }
+        a {
+          background-color: #666666;
+          &:before {
+            background: url(../img/menu-3.png);
+          }
+        }
+      }
+    }
+  }
+  .company-menu {
+    margin-bottom: 100px;
+    a {
+      padding-left: 10px;
+      font-size: 12px;
+      .icon {
+        width: 30px;
+        margin-right: 15px;
+      }
+    }
+  }
+  ul {
+    a {
+      height: 64px;
+      border: 1px solid @light;
+      background-color: white;
+      display: flex;
+      padding-left: 17px;
+      align-items: center;
+      text-transform: uppercase;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 9px;
+      &:hover {
+        background-color: #c00300;
+        border-color: #b50000;
+        color: white;
+        .box-shadow(0 0 8px rgba(0, 0, 0, 0.49));
+        use {
+          fill: white;
+        }
+        &:after {
+          color: white;
+        }
+      }
+      .icon {
+        width: 35px;
+        margin-right: 20px;
+        display: block;
+      }
+      use {
+        fill: @red;
+      }
+    }
+  }
+  .links {
+    a {
+      border: none;
+      background-color: @dark;
+      color: white;
+      &:hover {
+        background-color: darken(@dark, 15%);
+      }
+      .icon {
+        width: 50px;
+        display: flex;
+        justify-content: center;
+        margin-right: 15px;
+      }
+      use {
+        fill: white;
+      }
+    }
+    li:last-child a {
+      svg {
+        transition: transform 1s;
+      }
+      &:hover {
+        svg {
+          .rotate(360deg);
+        }
+      }
+    }
+  }
+  .banners {
+    text-align: center;
+    a {
+      margin-bottom: 10px;
+      display: block;
+    }
+    img {
+      max-width: 100%;
+    }
+    li {
+      list-style: none;
+    }
+  }
+  @media (max-width: 991px) {
+    margin-top: 25px;
+  }
+}
+
+.home {
+  .sidebar {
+    .home-none {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  .page-template-company {
+    .row > .sidebar {
+      .company-menu {
+        display: none;
+      }
+    }
+  }
+}

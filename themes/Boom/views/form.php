@@ -1,0 +1,1 @@
+<?= do_shortcode('[contact-form-7 id="212" title="Ваше пожелание и предложение" html_class="contact-form"]') ?>
